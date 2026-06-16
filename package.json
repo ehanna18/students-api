@@ -1,0 +1,17 @@
+{
+  "name": "testnode",
+  "version": "1.0.0",
+  "description": "Students API using Express and MongoDB Atlas",
+  "main": "test.js",
+  "scripts": {
+    "start": "node test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^8.24.0",
+    "xlsx": "^0.18.5"
+  }
+}
