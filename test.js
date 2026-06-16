@@ -7,7 +7,7 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT ||3000;
 
-app.use(express.static("public"));
+
 app.use(express.json({ limit: "10mb" }));
 
 mongoose.connect(
