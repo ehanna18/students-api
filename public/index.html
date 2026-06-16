@@ -163,22 +163,14 @@ function showMessage(message, type) {
         box.innerHTML = "";
     }, 3000);
 }
-
 function getImageSrc(photo) {
     if (!photo) {
-        return "/images/person4.jpg";
-    }
-
-    if (photo.startsWith("data:image")) {
-        return photo;
-    }
-
-    if (photo.startsWith("/9j") || photo.startsWith("iVBOR")) {
-        return "data:image/jpeg;base64," + photo;
+        return "/images/person4.jpeg";
     }
 
     return "/images/" + photo;
 }
+
 
 function loadStudents() {
     fetch("/students")
