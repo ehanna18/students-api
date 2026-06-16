@@ -13,7 +13,6 @@ mongoose.connect(
 .then(() => console.log("MongoDB Atlas connected"))
 .catch(error => console.log(error.message));
 
-
 const studentSchema = new mongoose.Schema(
     {
         id: Number,
@@ -26,13 +25,19 @@ const studentSchema = new mongoose.Schema(
 
 const Student = mongoose.model("Student", studentSchema);
 
+app.get("/", (req, res) => {
+    res.json({
+        message: "Students API is running",
+        endpoints: ["/students"]
+    });
+});
+
 app.get("/students", async (req, res) => {
     const students = await Student.find();
     res.json(students);
 });
 
 app.post("/students", async (req, res) => {
-    console.log("PHOTO RECEIVED:", req.body.photo);
     const newStudent = new Student({
         id: Number(req.body.id),
         name: req.body.name,
