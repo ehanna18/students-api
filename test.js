@@ -36,6 +36,18 @@ app.get("/students", async (req, res) => {
     const students = await Student.find();
     res.json(students);
 });
+  app.get("/students-csv", async (req, res) => {
+    const students = await Student.find();
+
+    let csv = "_id,id,name,grade,photo\n";
+
+    students.forEach(student => {
+        csv += `${student._id},${student.id},${student.name},${student.grade},${student.photo}\n`;
+    });
+
+    res.header("Content-Type", "text/csv");
+    res.send(csv);
+});
 
 app.post("/students", async (req, res) => {
     const newStudent = new Student({
